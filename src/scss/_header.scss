@@ -1,11 +1,16 @@
 $headerHeight: rem(50);
+$headerColor: #10517c;
 
 .header {
+    background-color: $headerColor;
+}
+.header__container {
     height: $headerHeight;
+    align-items: center;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fff;
+    color: #cbe6ff;
 }
 .menu_list {
     display: flex;
@@ -24,7 +29,8 @@ $headerHeight: rem(50);
         left: 0;
         width: 100%;
         height: 100%;
-        background: #FFEFBA
+        background: #cbe6ff;
+        color: #00053b;
     }
     &.active {
         top: 0;
@@ -44,7 +50,7 @@ $headerHeight: rem(50);
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: #222222;
+        background-color: #cbe6ff;
         transition: ease all 0.5s;
     }
     span:nth-of-type(2) {
@@ -57,6 +63,9 @@ $headerHeight: rem(50);
         display: inline-block;
     }
     &.active {
+        span {
+            background-color: #00053b;
+        }
         span:nth-of-type(1) {
             display: none;
         }
