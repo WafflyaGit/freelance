@@ -14,7 +14,8 @@ $md4: math.div(479.98, 16) + em;
 $mainColor: #fff;
 
 
-@import "null.scss";
+@import "base/null.scss";
+@import "base/functions.scss";
 body {
     background-color: $mainColor;
 }
@@ -23,6 +24,7 @@ body {
 [class*='__container'] {
     max-width: $containerMaxWidth;
     margin: 0 auto;
+    padding: $containerPadding;
     @media (max-width: $md1) {
         max-width: 970px;
     }
