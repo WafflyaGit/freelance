@@ -1,0 +1,13 @@
+$headerHeight: 50px;
+
+.header {
+    height: $headerHeight;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.menu_list {
+    display: flex;
+    gap: 15px;
+}
+

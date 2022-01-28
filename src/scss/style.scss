@@ -1,3 +1,40 @@
+// Variables
+$containerMaxWidth: 1100px;
+$containerPadding: 30px;
+$fontSize: rem(14);
+
+// Breakpoints
+@use 'sass:math';
+$md1: math.div($containerMaxWidth + $containerPadding, 16) + em;
+$md2: math.div(991.98, 16) + em;
+$md3: math.div(767.98, 16) + em;
+$md4: math.div(479.98, 16) + em;
+
+// Colors
+$mainColor: #fff;
+
+
 @import "null.scss";
+body {
+    background-color: $mainColor;
+}
+
+// Container
+[class*='__container'] {
+    max-width: $containerMaxWidth;
+    margin: 0 auto;
+    @media (max-width: $md1) {
+        max-width: 970px;
+    }
+    @media (max-width: $md2) {
+        max-width: 750px;
+    }
+    @media (max-width: $md3) {
+        max-width: none;
+        padding: 0 15px;
+    }
+}
+
 @import "_header.scss";
+@import "main.scss";
 @import "_footer.scss";
