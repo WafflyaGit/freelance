@@ -7,4 +7,4 @@ flsFunctions.isWebp();
 flsFunctions.menu();
 
 // Spoilers
-//flsFunctions.spoilers()
+flsFunctions.spoilers()

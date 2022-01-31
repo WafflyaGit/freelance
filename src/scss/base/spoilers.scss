@@ -1,7 +1,8 @@
 .spoiler { 
-    background-color: lightblue;
+    margin-bottom: rem(10px);
+    border: solid 1px lightblue;
+    border-radius: 5px;
     position: relative;
-    padding: rem(15px);
     overflow: hidden;
     &.open {
         .spoiler__btn::after {
@@ -10,20 +11,25 @@
         .spoiler__btn::before {
             transform: rotate(45deg);
         }
+        .spoiler__text {
+            opacity: 1;
+        }
     }
 }
 .spoiler__btn { 
     position: relative;
     background-color: transparent;
+    padding: rem(15px);
     border: none;
+    border-bottom: 1px solid lightblue;
     font-size: rem(22px);
     text-align: left;
     width: 100%;
     &::after {
         content: '';
         position: absolute;
-        right: rem(10px);
-        top: rem(10px);
+        right: rem(25px);
+        top: rem(25px);
         width: rem(15px);
         height: rem(2px);
         transition: transform ease .2s;
@@ -33,8 +39,8 @@
     &::before {
         content: '';
         position: absolute;
-        right: 0;
-        top: rem(10px);
+        right: rem(15px);
+        top: rem(25px);
         width: rem(15px);
         height: rem(2px);
         transition: transform ease .2s;
@@ -43,6 +49,8 @@
     }
 }
 .spoiler__text { 
-    margin-top: rem(15px);
+    padding: rem(15px);
     line-height: rem(25px);
+    transition: opacity ease-in-out .2s;
+    opacity: 0;
 }

@@ -24,18 +24,18 @@ export const spoilers = () => {
     
     const scrollDown = (target, to, duration) => {
         target.hidden ? target.hidden = false : "";
-        if (parseFloat(target.style.height) <= to) {
+        if (parseFloat(target.style.height) < parseFloat(to)) {
             return window.requestAnimationFrame(() => { 
-                target.style.height = parseFloat(target.style.height) + to / duration * 60 + 'px';
+                target.style.height = parseFloat(target.style.height) + to / duration * 100 + 'px';
                 scrollDown(target, to, duration);
             });
         }
     }
 
     const scrollUp = (target, from, duration) => {
-        if (parseFloat(target.style.height) > 0) {
+        if (parseFloat(target.style.height) >= (from / duration * 100) + 1) {
             return window.requestAnimationFrame(() => { 
-                target.style.height = parseFloat(target.style.height) - from / duration * 60 + 'px';
+                target.style.height = parseFloat(target.style.height) - from / duration * 100 + 'px';
                 scrollUp(target, from, duration);
             });
         } 
@@ -43,7 +43,7 @@ export const spoilers = () => {
         !target.hidden ? target.hidden = true : "";
     }
 
-    const scroll = (target, height, duration = 1000) => {
+    const scroll = (target, height, duration = 2000) => {
         target.hidden
             ? scrollDown(target, height, duration)
             : scrollUp(target, height, duration)
@@ -51,7 +51,7 @@ export const spoilers = () => {
 
     document.querySelectorAll('[spoiler]').forEach((item) => {
         const content = item.querySelector(['[spoiler-content]']);
-        const heigth = content.offsetHeight;
+        const heigth = content.scrollHeight;
 
         content.hidden = true;
         content.style.height = 0 + 'px';
