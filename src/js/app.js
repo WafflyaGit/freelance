@@ -5,3 +5,6 @@ flsFunctions.isWebp();
 
 // Menu for mobile
 flsFunctions.menu();
+
+// Spoilers
+//flsFunctions.spoilers()

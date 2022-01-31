@@ -1,0 +1,48 @@
+.spoiler { 
+    background-color: lightblue;
+    position: relative;
+    padding: rem(15px);
+    overflow: hidden;
+    &.open {
+        .spoiler__btn::after {
+            transform: rotate(-45deg);
+        }
+        .spoiler__btn::before {
+            transform: rotate(45deg);
+        }
+    }
+}
+.spoiler__btn { 
+    position: relative;
+    background-color: transparent;
+    border: none;
+    font-size: rem(22px);
+    text-align: left;
+    width: 100%;
+    &::after {
+        content: '';
+        position: absolute;
+        right: rem(10px);
+        top: rem(10px);
+        width: rem(15px);
+        height: rem(2px);
+        transition: transform ease .2s;
+        background-color: black;
+        transform: rotate(45deg);
+    }
+    &::before {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: rem(10px);
+        width: rem(15px);
+        height: rem(2px);
+        transition: transform ease .2s;
+        background-color: black;
+        transform: rotate(-45deg);
+    }
+}
+.spoiler__text { 
+    margin-top: rem(15px);
+    line-height: rem(25px);
+}
