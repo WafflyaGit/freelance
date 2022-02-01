@@ -63,3 +63,23 @@ export const spoilers = () => {
     })
 }
 
+export const modals = () => {
+    document.querySelectorAll('a[href*="#"][href*="modal"]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+            document.querySelectorAll('div[modal*="#"][modal*="modal"]').forEach((modal) => {
+                modal.getAttribute('modal') == link.getAttribute('href') 
+                    ? modal.classList.toggle('opened') : "";
+
+                modal.addEventListener('click', (e) => {
+                    e.target == modal ? modal.classList.remove('opened') : "";
+                })
+
+                modal.querySelector('[close]').addEventListener('click', () => {
+                    modal.classList.remove('opened');
+                })
+
+                e.preventDefault();
+            })
+        })
+    });
+}
