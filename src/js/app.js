@@ -7,7 +7,7 @@ flsFunctions.isWebp();
 flsFunctions.menu();
 
 // Accordions
-flsFunctions.accordions()
+//flsFunctions.accordions()
 
 // Modals
 //flsFunctions.modals()
