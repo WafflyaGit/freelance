@@ -20,47 +20,44 @@ export const menu = () => {
     })
 }
 
-export const spoilers = () => {
+export const accordions = () => {
     
-    const scrollDown = (target, to, duration) => {
-        target.hidden ? target.hidden = false : "";
-        if (parseFloat(target.style.height) < parseFloat(to)) {
-            return window.requestAnimationFrame(() => { 
-                target.style.height = parseFloat(target.style.height) + to / duration * 100 + 'px';
-                scrollDown(target, to, duration);
-            });
-        }
-    }
-
-    const scrollUp = (target, from, duration) => {
-        if (parseFloat(target.style.height) >= (from / duration * 100) + 1) {
-            return window.requestAnimationFrame(() => { 
-                target.style.height = parseFloat(target.style.height) - from / duration * 100 + 'px';
-                scrollUp(target, from, duration);
-            });
-        } 
-
-        !target.hidden ? target.hidden = true : "";
-    }
-
-    const scroll = (target, height, duration = 2000) => {
-        target.hidden
-            ? scrollDown(target, height, duration)
-            : scrollUp(target, height, duration)
-    }
-
-    document.querySelectorAll('[spoiler]').forEach((item) => {
-        const content = item.querySelector(['[spoiler-content]']);
-        const heigth = content.scrollHeight;
-
-        content.hidden = true;
-        content.style.height = 0 + 'px';
-
-        item.querySelector('[spoiler-btn]').addEventListener('click', () => {
-            item.classList.toggle('open');
-            scroll(content, heigth);
+    document.querySelectorAll('[accordions][multiple]').forEach(item => {
+        item.querySelectorAll('[accordion]').forEach(accordion => {
+            accordion.querySelector('button').addEventListener('click', () => {
+                toggle(accordion, accordion.querySelector('[content]'))
+            })
         })
     })
+    
+    document.querySelectorAll('[accordions][single]').forEach(item => {
+        const accordions = item.querySelectorAll('[accordion]');
+        accordions.forEach(accordion => {
+            accordion.querySelector('button').addEventListener('click', () => {
+                accordions.forEach(select => {
+                    accordion == select 
+                        ? toggle(select, select.querySelector('[content]')) 
+                        : scrollUp(select, select.querySelector('[content]')) 
+                })
+            })
+        })
+    })
+
+    const toggle = (parent, target) => {
+        parent.classList.contains('active')
+            ? scrollUp(parent, target)
+            : scrollDown(parent, target)
+    }
+
+    const scrollDown = (parent, target) => {
+        parent.classList.add('active');
+        target.style.maxHeight = target.scrollHeight + 'px';
+    }
+
+    const scrollUp = (parent, target) => {
+        target.style.maxHeight = 0;
+        parent.classList.remove('active');
+    }
 }
 
 export const modals = () => {

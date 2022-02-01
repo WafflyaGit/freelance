@@ -6,8 +6,8 @@ flsFunctions.isWebp();
 // Menu for mobile
 flsFunctions.menu();
 
-// Spoilers
-//flsFunctions.spoilers()
+// Accordions
+flsFunctions.accordions()
 
 // Modals
 //flsFunctions.modals()

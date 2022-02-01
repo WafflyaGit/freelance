@@ -1,7 +1,9 @@
 $headerHeight: rem(50);
-$headerColor: #10517c;
+$headerColor: #fff;
 
 .header {
+    border-bottom: 1px solid;
+    border-image: linear-gradient(to right, transparent, #10517c, transparent) 1;
     background-color: $headerColor;
 }
 .header__container {
@@ -10,7 +12,7 @@ $headerColor: #10517c;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #cbe6ff;
+    color: #10517c;
 }
 .menu_list {
     display: flex;

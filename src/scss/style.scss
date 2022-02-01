@@ -1,24 +1,27 @@
+@use 'sass:math';
+@import "base/null.scss";
+@import "base/functions.scss";
+
 // Variables
 $containerMaxWidth: 1100px;
 $containerPadding: 30px;
 $fontSize: rem(16);
 
 // Breakpoints
-@use 'sass:math';
 $md1: math.div($containerMaxWidth + $containerPadding, 16) + em;
 $md2: math.div(991.98, 16) + em;
 $md3: math.div(767.98, 16) + em;
 $md4: math.div(479.98, 16) + em;
 
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Montserrat+Subrayada:regular,400,600,700&display=swap");
 // Colors
 $mainColor: #fff;
 
-
-@import "base/null.scss";
-@import "base/functions.scss";
 body {
     background-color: $mainColor;
     font-size: $fontSize;
+    font-family: 'Montserrat', sans-serif;
 }
 
 // Container
@@ -43,5 +46,5 @@ body {
 @import "_footer.scss";
 
 // Plugins
-//@import "base/spoilers.scss";
+@import "base/accordions.scss";
 //@import "base/modals.scss";
