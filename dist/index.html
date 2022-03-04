@@ -1,11 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-    @@include('html/_head.html', {
-        "title": "Home"
-    })
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css?_v=20220304162240">
+    <title>Home</title>
+</head>
 <body>
     <main class="wrapper">
-        @@include('html/_header.html', {})
+        <div class="header">
+    <header class="header__container">
+        <a href="#" class="header__logo logo">
+            <span class="logo__desktop">Fruit and vegetables</span>
+            <span class="logo__mobile">F&V</span>
+        </a>
+        <nav class="header__menu menu">
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <label class="menu__radio view">
+                        <input class="view__input" type="radio" name="view" value="grid" checked>
+                        <span class="view__icon grid"></span>
+                        <span class="view__label">Grid View</span>
+                    </label>
+                </li>
+                <li class="menu__item">
+                    <label class="menu__radio view">
+                        <input class="view__input" type="radio" name="view" value="grid">
+                        <span class="view__icon list"></span>
+                        <span class="view__label">List view</span>
+                    </label>
+                </li>
+                <li class="menu__item products">
+                    <span class="bg-green">458</span> Products
+                </li>
+                <li class="menu__item">
+                    <div menu-btn class="menu__btn"></div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <nav class="filter__container">
+        <ul class="filters">
+            <li class="filters__item">
+                <ul class="filter">
+                    <li class="filter__item">
+                        <label class="filter__radio radio">
+                            <input class="radio__input" type="radio" name="option" value="popular" checked>
+                            <span class="radio__icon"></span>
+                            <span class="radio__label">Most popular</span>
+                        </label>
+                    </li>
+                    <li class="filter__item">
+                        <label class="filter__radio radio">
+                            <input class="radio__input" type="radio" name="option" value="cheapest">
+                            <span class="radio__icon"></span>
+                            <span class="radio__label">Cheapest</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="filters__item">
+                <ul class="filter">
+                    <li class="filter__item">
+                        <label class="filter__checkbox checkbox">
+                            <input class="checkbox__input" type="checkbox" name="option" value="popular">
+                            <span class="checkbox__icon"></span>
+                            <span class="checkbox__label">Farm</span>
+                            <span class="filter__count bg-green small-text">326</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="filters__item">
+                <ul class="filter">
+                    <li class="filter__item">
+                        <label class="filter__checkbox checkbox">
+                            <input class="checkbox__input" type="checkbox" name="option" value="popular">
+                            <span class="checkbox__icon"></span>
+                            <span class="checkbox__label">Bio</span>
+                            <span class="filter__count bg-green small-text">72</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="filters__item">
+                <ul class="filter">
+                    <li class="filter__item">
+                        <label class="filter__checkbox checkbox">
+                            <input class="checkbox__input" type="checkbox" name="option" value="popular" checked>
+                            <span class="checkbox__icon"></span>
+                            <span class="checkbox__label">Czech Republic</span>
+                            <span class="filter__count small-text bg-gray">72</span>
+                            <span class="filter__selection">Country</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <nav class="applied">
+            <span class="applied__label small-text">Applied filters:</span>
+            <ul class="applied__list">
+                <li class="applied__item bg-green small-text">Selected filter</li>
+                <li class="applied__item bg-green small-text">Selected filter</li>
+            </ul>
+        </nav>
+    </nav>
+</div>
         <section class="content__container content">
             <nav menu-list class="content__menu menu">
                 <form action="">
@@ -151,7 +252,7 @@
                 <div class="products__card card">
                     <div class="card__image">
                         <div class="card__discount small-text bg-green">-36%</div>
-                        <img src="@img/product_1.png" alt="Product">
+                        <picture><source srcset="img/product_1.webp" type="image/webp"><img src="img/product_1.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Banana</div>
@@ -175,7 +276,7 @@
                 <div class="products__card card">
                     <div class="card__image">
                         <div class="card__discount small-text bg-green">-36%</div>
-                        <img src="@img/product_2.png" alt="Product">
+                        <picture><source srcset="img/product_2.webp" type="image/webp"><img src="img/product_2.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Strawberry</div>
@@ -190,7 +291,7 @@
                 </div>
                 <div class="products__card card">
                     <div class="card__image">
-                        <img src="@img/product_3.png" alt="Product">
+                        <picture><source srcset="img/product_3.webp" type="image/webp"><img src="img/product_3.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Pineaple</div>
@@ -213,7 +314,7 @@
                 <div class="products__card card">
                     <div class="card__image">
                         <div class="card__discount small-text bg-green">-36%</div>
-                        <img src="@img/product_1.png" alt="Product">
+                        <picture><source srcset="img/product_1.webp" type="image/webp"><img src="img/product_1.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Banana</div>
@@ -237,7 +338,7 @@
                 <div class="products__card card">
                     <div class="card__image">
                         <div class="card__discount small-text bg-green">-36%</div>
-                        <img src="@img/product_2.png" alt="Product">
+                        <picture><source srcset="img/product_2.webp" type="image/webp"><img src="img/product_2.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Strawberry</div>
@@ -252,7 +353,7 @@
                 </div>
                 <div class="products__card card">
                     <div class="card__image">
-                        <img src="@img/product_3.png" alt="Product">
+                        <picture><source srcset="img/product_3.webp" type="image/webp"><img src="img/product_3.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Pineaple</div>
@@ -275,7 +376,7 @@
                 <div class="products__card card">
                     <div class="card__image">
                         <div class="card__discount small-text bg-green">-36%</div>
-                        <img src="@img/product_1.png" alt="Product">
+                        <picture><source srcset="img/product_1.webp" type="image/webp"><img src="img/product_1.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Banana</div>
@@ -299,7 +400,7 @@
                 <div class="products__card card">
                     <div class="card__image">
                         <div class="card__discount small-text bg-green">-36%</div>
-                        <img src="@img/product_2.png" alt="Product">
+                        <picture><source srcset="img/product_2.webp" type="image/webp"><img src="img/product_2.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Strawberry</div>
@@ -314,7 +415,7 @@
                 </div>
                 <div class="products__card card">
                     <div class="card__image">
-                        <img src="@img/product_3.png" alt="Product">
+                        <picture><source srcset="img/product_3.webp" type="image/webp"><img src="img/product_3.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Pineaple</div>
@@ -337,7 +438,7 @@
                 <div class="products__card card">
                     <div class="card__image">
                         <div class="card__discount small-text bg-green">-36%</div>
-                        <img src="@img/product_1.png" alt="Product">
+                        <picture><source srcset="img/product_1.webp" type="image/webp"><img src="img/product_1.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Banana</div>
@@ -361,7 +462,7 @@
                 <div class="products__card card">
                     <div class="card__image">
                         <div class="card__discount small-text bg-green">-36%</div>
-                        <img src="@img/product_2.png" alt="Product">
+                        <picture><source srcset="img/product_2.webp" type="image/webp"><img src="img/product_2.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Strawberry</div>
@@ -376,7 +477,7 @@
                 </div>
                 <div class="products__card card">
                     <div class="card__image">
-                        <img src="@img/product_3.png" alt="Product">
+                        <picture><source srcset="img/product_3.webp" type="image/webp"><img src="img/product_3.png" alt="Product"></picture>
                     </div>
                     <div class="card__content">
                         <div class="card__title">Pineaple</div>
@@ -399,7 +500,9 @@
             </div>
         </section>
     </main>
-    @@include('html/_footer.html', {})
-    <script src="js/app.min.js"></script>
+    <footer class="footer__container footer">
+    <div class="footer__title">@Made by Wafflya - 2022</div>
+</footer>
+    <script src="js/app.min.js?_v=20220304162240"></script>
 </body>
 </html>

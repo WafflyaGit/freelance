@@ -1,19 +1,98 @@
 <div class="header">
     <header class="header__container">
-        <a href="#" class="header__logo">
-            LOGO
+        <a href="#" class="header__logo logo">
+            <span class="logo__desktop">Fruit and vegetables</span>
+            <span class="logo__mobile">F&V</span>
         </a>
         <nav class="header__menu menu">
-            <div menu-btn class="menu__btn">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul menu-list class="menu_list">
-                <li class="menu_item"><a href="#" class="menu_link">Home</a></li>
-                <li class="menu_item"><a href="#" class="menu_link">About us</a></li>
-                <li class="menu_item"><a href="#" class="menu_link">Contacts</a></li>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <label class="menu__radio view">
+                        <input class="view__input" type="radio" name="view" value="grid" checked>
+                        <span class="view__icon grid"></span>
+                        <span class="view__label">Grid View</span>
+                    </label>
+                </li>
+                <li class="menu__item">
+                    <label class="menu__radio view">
+                        <input class="view__input" type="radio" name="view" value="grid">
+                        <span class="view__icon list"></span>
+                        <span class="view__label">List view</span>
+                    </label>
+                </li>
+                <li class="menu__item products">
+                    <span class="bg-green">458</span> Products
+                </li>
+                <li class="menu__item">
+                    <div menu-btn class="menu__btn"></div>
+                </li>
             </ul>
         </nav>
     </header>
+    <nav class="filter__container">
+        <ul class="filters">
+            <li class="filters__item">
+                <ul class="filter">
+                    <li class="filter__item">
+                        <label class="filter__radio radio">
+                            <input class="radio__input" type="radio" name="option" value="popular" checked>
+                            <span class="radio__icon"></span>
+                            <span class="radio__label">Most popular</span>
+                        </label>
+                    </li>
+                    <li class="filter__item">
+                        <label class="filter__radio radio">
+                            <input class="radio__input" type="radio" name="option" value="cheapest">
+                            <span class="radio__icon"></span>
+                            <span class="radio__label">Cheapest</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="filters__item">
+                <ul class="filter">
+                    <li class="filter__item">
+                        <label class="filter__checkbox checkbox">
+                            <input class="checkbox__input" type="checkbox" name="option" value="popular">
+                            <span class="checkbox__icon"></span>
+                            <span class="checkbox__label">Farm</span>
+                            <span class="filter__count bg-green small-text">326</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="filters__item">
+                <ul class="filter">
+                    <li class="filter__item">
+                        <label class="filter__checkbox checkbox">
+                            <input class="checkbox__input" type="checkbox" name="option" value="popular">
+                            <span class="checkbox__icon"></span>
+                            <span class="checkbox__label">Bio</span>
+                            <span class="filter__count bg-green small-text">72</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+            <li class="filters__item">
+                <ul class="filter">
+                    <li class="filter__item">
+                        <label class="filter__checkbox checkbox">
+                            <input class="checkbox__input" type="checkbox" name="option" value="popular" checked>
+                            <span class="checkbox__icon"></span>
+                            <span class="checkbox__label">Czech Republic</span>
+                            <span class="filter__count small-text bg-gray">72</span>
+                            <span class="filter__selection">Country</span>
+                        </label>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <nav class="applied">
+            <span class="applied__label small-text">Applied filters:</span>
+            <ul class="applied__list">
+                <li class="applied__item bg-green small-text">Selected filter</li>
+                <li class="applied__item bg-green small-text">Selected filter</li>
+            </ul>
+        </nav>
+    </nav>
 </div>

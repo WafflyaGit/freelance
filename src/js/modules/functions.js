@@ -14,9 +14,14 @@ export const isWebp = () => {
 }
 
 export const menu = () => {
-    document.querySelector('[menu-btn]').addEventListener('click', () => {
-        document.querySelector('[menu-list]').classList.toggle('active');
-        document.querySelector('[menu-btn]').classList.toggle('active');
+    const menu = document.querySelector('[menu-list]');
+    const body = document.querySelector('body');
+    
+    document.querySelectorAll('[menu-btn]').forEach(item => {
+        item.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            body.classList.toggle('modal');
+        })
     })
 }
 

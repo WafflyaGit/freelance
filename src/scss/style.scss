@@ -3,42 +3,50 @@
 @import "base/functions.scss";
 
 // Variables
-$containerMaxWidth: 1100px;
-$containerPadding: 30px;
+$containerMaxWidth: 1165px;
+$containerPadding: rem(45);
 $fontSize: rem(16);
 
 // Breakpoints
 $md1: math.div($containerMaxWidth + $containerPadding, 16) + em;
 $md2: math.div(991.98, 16) + em;
-$md3: math.div(767.98, 16) + em;
+$md3: math.div(768.98, 16) + em;
 $md4: math.div(479.98, 16) + em;
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Montserrat+Subrayada:regular,400,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,500,600");
+@import url("https://fonts.googleapis.com/css?family=Poppins:500,600,700");
 // Colors
-$mainColor: #fff;
+$mainColor: #F5F5F5;
+$white: #FDFDFD;
+$gray: #A9A9A9;
+$green: #6A983C;
+$black: #151515;
+
+$lightGreen: #F4F8EC;
+$lightGray: #F9F9F9;
+$lightGray2: #D1D1D1;
+$lightBlack: #575757;
+
+$darkGreen: #46760A;
 
 body {
     background-color: $mainColor;
     font-size: $fontSize;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Open Sans;
+    padding: rem(128);
+    @media (max-width: 1200px) {
+        padding: rem(36);
+    }
+    @media (max-width: $md2) {
+        padding: rem(16);
+    }
 }
 
 // Container
 [class*='__container'] {
-    max-width: $containerMaxWidth;
     margin: 0 auto;
-    padding: $containerPadding;
-    @media (max-width: $md1) {
-        max-width: 970px;
-    }
-    @media (max-width: $md2) {
-        max-width: 750px;
-    }
-    @media (max-width: $md3) {
-        max-width: none;
-        padding: 0 15px;
-    }
+    padding: 0 $containerPadding;
 }
 
 @import "_header.scss";
