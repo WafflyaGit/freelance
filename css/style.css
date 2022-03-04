@@ -294,7 +294,7 @@ body.modal::before {
 }
 
 .no-webp .wrapper:before{
-  background-image: url("/img/background-1.png"); }
+  background-image: url("../img/background-1.png"); }
 
 .wrapper:before {
   width: 40%;
@@ -310,7 +310,7 @@ body.modal::before {
 }
 
 .no-webp .wrapper:after{
-  background-image: url("/img/background-2.png"); }
+  background-image: url("../img/background-2.png"); }
 
 .wrapper:after {
   width: 90.625rem;
