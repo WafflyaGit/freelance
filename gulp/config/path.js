@@ -5,6 +5,9 @@ const buildFolder = `./dist`;
 const srcFolder = `./src`
 
 export const path = {
+    templates: {
+        _icons: `${srcFolder}/scss/base/_icons.scss`
+    },
     build: {
         js: `${buildFolder}/js/`,
         images: `${buildFolder}/img/`,
@@ -15,10 +18,10 @@ export const path = {
     src: {
         js: `${srcFolder}/js/app.js`,
         images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
-        svg: `${srcFolder}/img/**/*.svg`,
+        svg: `${srcFolder}/svg/**/*.svg`,
         scss: `${srcFolder}/scss/style.scss`,
         html: `${srcFolder}/*.html`,
-        svgicons: `${srcFolder}/svgicons/*.svg`
+        fonts: `${srcFolder}/fonts/`,
     },
     watch: {
         js: `${srcFolder}/js/**/*.js`,
