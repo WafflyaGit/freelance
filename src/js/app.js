@@ -1,13 +1,16 @@
-import * as flsFunctions from "./modules/functions.js";
+import * as functions from "./modules/functions.js";
 
 // Checks if browser allows to use webp format
-flsFunctions.isWebp();
+functions.isWebp();
 
 // Menu for mobile
-flsFunctions.menu();
+functions.menu();
 
 // Accordions
 //flsFunctions.accordions()
 
 // Modals
 //flsFunctions.modals()
+
+// Ranges
+//functions.ranges();

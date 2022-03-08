@@ -80,3 +80,35 @@ export const modals = () => {
         })
     });
 }
+
+export const ranges = () => {
+    document.querySelectorAll('[ranges]').forEach(range => {
+        const slider_min = range.querySelector("[data-range='min']");
+        const slider_max = range.querySelector("[data-range='max']");
+        const track = range.querySelector("[track]");
+
+        const fill = () => { 
+            track.style.background = `linear-gradient(to right, lightgray ${slider_min.value / slider_min.max * 100}%, tomato ${slider_min.value / slider_min.max * 100}%, tomato ${slider_max.value / slider_max.max * 100}%, lightgray ${slider_max.value / slider_max.max * 100}%)`; 
+        }
+
+        const limit = (listener, target, operator, gap = range.dataset.gap) => {
+            if (eval(`${parseInt(listener.value)} ${operator} ${parseInt(target.value)}`)) {
+                listener.value = operator === '>' 
+                    ? parseInt(target.value) - parseInt(gap) 
+                    : parseInt(target.value) + parseInt(gap);
+            }
+        }
+
+        slider_min.addEventListener('input', () => {
+            limit(slider_min, slider_max, '>');
+            fill();
+        });
+        
+        slider_max.addEventListener('input', () => {
+            limit(slider_max, slider_min, '<');
+            fill();
+        });
+
+        fill();
+    })
+}
