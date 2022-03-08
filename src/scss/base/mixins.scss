@@ -1,0 +1,14 @@
+// FLUID VALUE
+@mixin fluid($propery, $min, $max, $min-vw, $max-vw) {
+  @media (max-width: $min-vw) {
+    #{$propery}: $min;
+  }
+  @media (min-width: $min-vw) and (max-width: $max-vw) {
+    #{$propery}: calc(
+      $min + (rem-to-number($max) - rem-to-number($min)) * ((100vw - $min-vw) / (rem-to-number($max-vw) - rem-to-number($min-vw)))
+    );
+  }
+  @media (min-width: $max-vw) {
+    #{$propery}: $max;
+  }
+}

@@ -1,6 +1,7 @@
 @use 'sass:math';
 @import "base/null.scss";
 @import "base/functions.scss";
+@import "base/mixins.scss";
 
 // Variables
 $containerMaxWidth: 1100px;
@@ -8,10 +9,10 @@ $containerPadding: 30px;
 $fontSize: rem(16);
 
 // Breakpoints
-$md1: math.div($containerMaxWidth + $containerPadding, 16) + em;
-$md2: math.div(991.98, 16) + em;
-$md3: math.div(767.98, 16) + em;
-$md4: math.div(479.98, 16) + em;
+$md1: em($containerMaxWidth + $containerPadding);
+$md2: em(991.98);
+$md3: em(767.98);
+$md4: em(479.98);
 
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Montserrat+Subrayada:regular,400,600,700&display=swap");
