@@ -1,6 +1,6 @@
 .accordion { 
     width: 100%;
-    border-radius: rem(15px);
+    border-radius: rem(15);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.25);
     &.active {
         .accordion__title::after {
@@ -9,8 +9,8 @@
         .accordion__content {
             border-top: 1px solid;
             opacity: 1;
-            border-image: linear-gradient(to right, transparent, #10517c, transparent) 1;
-            padding: rem(15px);
+            border-image: linear-gradient(to right, transparent, #10517c, transparent);
+            padding: rem(15);
             transition: opacity .3s ease-out;
         }
     }
@@ -19,10 +19,10 @@
     position: relative;
     width: 100%;
     text-align: left;
-    padding: rem(15px);
-    padding-right: rem(30px);
+    padding: rem(15);
+    padding-right: rem(30);
     font-weight: 600;
-    font-size: rem(18px);
+    font-size: rem(18);
     border: none;
     background: transparent;
     display: flex;
@@ -30,7 +30,7 @@
     justify-content: space-between;
     &::after {
         content: '\002B';
-        font-size: rem(26px);
+        font-size: rem(26);
         font-weight: 500;
         transition: transform ease-in-out .2s;
     }
