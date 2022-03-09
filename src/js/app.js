@@ -7,10 +7,13 @@ functions.isWebp();
 functions.menu();
 
 // Accordions
-//flsFunctions.accordions()
+//functions.accordions()
 
 // Modals
-//flsFunctions.modals()
+//functions.modals()
 
 // Ranges
 //functions.ranges();
+
+// Tabs
+//functions.tabs();

@@ -112,3 +112,32 @@ export const ranges = () => {
         fill();
     })
 }
+
+export const tabs = () => {
+    document.querySelectorAll('[tabs]').forEach(item => {
+        const tabs = item.querySelectorAll('[data-for]');
+        const contents = item.querySelectorAll('[data-tab]');
+
+        contents.forEach(content => {
+            tabs.forEach(tab => {
+                !tab.classList.contains('active') 
+                    && content.dataset.tab === tab.dataset.for
+                    ? content.hidden = true : '';
+            })
+        });
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(tab_item => {
+                    tab_item === tab 
+                        ? tab_item.classList.add("active") 
+                        : tab_item.classList.remove('active');
+                })
+
+                contents.forEach(content => {
+                    content.hidden = tab.dataset.for === content.dataset.tab ? false : true;
+                })
+            })
+        })
+    })
+}
