@@ -1,0 +1,56 @@
+@font-face {
+	font-family: "_icons";
+	src: url('../fonts/icons/_icons.eot');
+	src: url('../fonts/icons/_icons.eot?#iefix') format('eot'),
+		url('../fonts/icons/_icons.woff2') format('woff2'),
+		url('../fonts/icons/_icons.woff') format('woff'),
+		url('../fonts/icons/_icons.ttf') format('truetype'),
+		url('../fonts/icons/_icons.svg#_icons') format('svg');
+}
+
+@mixin _icon-styles {
+	font-family: "_icons";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	// speak: none; // only necessary if not using the private unicode range (firstGlyph option)
+	text-decoration: none;
+	text-transform: none;
+}
+
+%_icon {
+	@include _icon-styles;
+}
+
+@function _icon-char($filename) {
+	$char: "";
+
+	@if $filename == star-off {
+		$char: "\E001";
+	}
+	@if $filename == star-on {
+		$char: "\E002";
+	}
+
+	@return $char;
+}
+
+@mixin _icon($filename, $insert: before, $extend: true) {
+	&:#{$insert} {
+		@if $extend {
+			@extend %_icon;
+		} @else {
+			@include _icon-styles;
+		}
+		content: _icon-char($filename);
+	}
+}
+
+._icon-star-off {
+	@include _icon(star-off);
+}
+._icon-star-on {
+	@include _icon(star-on);
+}

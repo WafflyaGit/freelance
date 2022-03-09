@@ -7,7 +7,7 @@ export const svg = () => {
             fontName: '_icons',
             path: app.path.templates._icons,
             targetPath: '../scss/_icons.scss',
-            fontPath: '../fonts/',
+            fontPath: '../fonts/icons/',
             cssClass: '_icon'
         }))
         .pipe(iconfont({

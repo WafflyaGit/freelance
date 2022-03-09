@@ -1,0 +1,18 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<svg xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <font id="_icons" horiz-adv-x="1001">
+    <font-face font-family="_icons"
+      units-per-em="1001" ascent="1001"
+      descent="0" />
+    <missing-glyph horiz-adv-x="0" />
+    <glyph glyph-name="star-off"
+      unicode="&#xE001;"
+      horiz-adv-x="1001" d="" />
+    <glyph glyph-name="star-on"
+      unicode="&#xE002;"
+      horiz-adv-x="1001" d="M500.5 1001L367.0333333333334 667.3333333333333H33.3666666666667L300.3 433.7666666666667L166.8333333333334 33.3666666666667L500.5 266.9333333333333L834.1666666666666 33.3666666666667L700.7 433.7666666666667L967.6333333333334 667.3333333333333H633.9666666666667L500.5 1001z" />
+  </font>
+</defs>
+</svg>

@@ -1,0 +1,39 @@
+.rating {
+    $height: rem(20);
+    $width: rem(20);  
+
+    border: none;
+    &__group {
+        margin-top: rem(10);
+        position: relative;
+        width: calc($width * 5);
+        height: $height;
+        background-image: url("/img/star-off.svg");
+        background-size: $height auto;
+        background-repeat: repeat-x;
+    }
+    &__star {
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        position: absolute;
+        appearance: none;
+        width: $width;
+        height: $height;
+        font-size: inherit;
+        background-size: $height auto;
+        background-repeat: repeat-x;
+        &:checked, &:hover {
+            background-image: url("/img/star-on.svg");
+        }
+        &:hover ~ & {
+            background-image: url("/img/star-off.svg");
+        }
+        @each $i in 1, 2, 3, 4, 5 {
+            &:nth-of-type(#{$i}) {
+                z-index: 6 - $i;
+                width: calc($width * $i);
+            }
+        }
+    }
+}
