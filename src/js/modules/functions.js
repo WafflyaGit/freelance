@@ -1,4 +1,5 @@
 "use strict";
+// WEBP
 export const isWebp = () => {
     const testWebP = (callback) => {
         let webP = new Image();
@@ -13,6 +14,7 @@ export const isWebp = () => {
     });
 }
 
+// MENU
 export const menu = () => {
     document.querySelector('[menu-btn]').addEventListener('click', () => {
         document.querySelector('[menu-list]').classList.toggle('active');
@@ -20,8 +22,8 @@ export const menu = () => {
     })
 }
 
+// ACCORDIONS
 export const accordions = () => {
-    
     document.querySelectorAll('[accordions][multiple]').forEach(item => {
         item.querySelectorAll('[accordion]').forEach(accordion => {
             accordion.querySelector('button').addEventListener('click', () => {
@@ -60,6 +62,7 @@ export const accordions = () => {
     }
 }
 
+// MODALS
 export const modals = () => {
     document.querySelectorAll('a[href*="#"][href*="modal"]').forEach((link) => {
         link.addEventListener('click', (e) => {
@@ -81,6 +84,7 @@ export const modals = () => {
     });
 }
 
+// RANGES
 export const ranges = () => {
     document.querySelectorAll('[ranges]').forEach(range => {
         const slider_min = range.querySelector("[data-range='min']");
@@ -113,6 +117,7 @@ export const ranges = () => {
     })
 }
 
+// TABS
 export const tabs = () => {
     document.querySelectorAll('[tabs]').forEach(item => {
         const tabs = item.querySelectorAll('[data-for]');
@@ -142,6 +147,7 @@ export const tabs = () => {
     })
 }
 
+// SLIDER
 export const slider = (id) => {
     new Swiper('.swiper', {
         loop: true,
@@ -154,4 +160,34 @@ export const slider = (id) => {
             clickable: true
         },
     });
+}
+
+// TRANSFERS
+export const transfers = () => {
+    let items = [];
+
+    const handle = (query, item) => {
+        query.matches ? item.target.append(item.item) : item.parent.append(item.item);
+    }
+
+    document.querySelectorAll('[data-transfer]').forEach(item => {
+        items.push({
+            item: item,
+            parent: item.parentElement,
+            target: document.querySelector(`#${item.dataset.transfer.split(', ')[0]}`),
+            media: {
+                query: item.dataset.transfer.split(', ')[1],
+                value: item.dataset.transfer.split(', ')[2]
+            },
+        })
+    })
+
+    items.forEach(item => {
+        const query = window.matchMedia(`(${item.media.query}-width: ${item.media.value}px)`);
+        query.addListener(() => {
+            handle(query, item);
+        })
+
+        handle(query, item);
+    })
 }
