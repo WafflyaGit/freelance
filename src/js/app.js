@@ -17,3 +17,6 @@ functions.menu();
 
 // Tabs
 //functions.tabs();
+
+// Slider (enable styles in 'html/_style.html' and script in 'html/_js.html')
+//functions.slider('#slider');
