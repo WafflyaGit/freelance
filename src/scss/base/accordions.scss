@@ -7,11 +7,10 @@
             transform: rotateZ(45deg);
         }
         .accordion__content {
-            border-top: 1px solid;
             opacity: 1;
+            border-top: 1px solid;
             border-image: linear-gradient(to right, transparent, #10517c, transparent);
             padding: rem(15);
-            transition: opacity .3s ease-out;
         }
     }
 }
@@ -42,5 +41,5 @@
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: max-height .3s ease-out;
+    transition: max-height .3s ease;
 }

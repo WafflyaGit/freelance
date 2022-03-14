@@ -24,26 +24,23 @@ export const menu = () => {
 
 // ACCORDIONS
 export const accordions = () => {
-    document.querySelectorAll('[accordions][multiple]').forEach(item => {
-        item.querySelectorAll('[accordion]').forEach(accordion => {
-            accordion.querySelector('button').addEventListener('click', () => {
-                toggle(accordion, accordion.querySelector('[content]'))
-            })
-        })
-    })
-    
-    document.querySelectorAll('[accordions][single]').forEach(item => {
-        const accordions = item.querySelectorAll('[accordion]');
-        accordions.forEach(accordion => {
-            accordion.querySelector('button').addEventListener('click', () => {
-                accordions.forEach(select => {
-                    accordion == select 
-                        ? toggle(select, select.querySelector('[content]')) 
-                        : scrollUp(select, select.querySelector('[content]')) 
-                })
-            })
-        })
-    })
+    const multiples = document.querySelectorAll('[accordions][multiple]');
+    const singles = document.querySelectorAll('[accordions][single]');
+
+    const handle = (query, true_callback, false_callback) => {
+        query.matches ? true_callback() : false_callback();
+    }
+
+    const media = (accordion, true_callback, false_callback) => {
+        if (accordion.hasAttribute('accordion') && accordion.getAttribute('accordion')) {
+            const query = window.matchMedia(`(${accordion.getAttribute('accordion').split(', ')[0]}-width: ${accordion.getAttribute('accordion').split(', ')[1]}px)`);
+            query.addListener(() => handle(query, true_callback, false_callback));
+            handle(query, true_callback, false_callback);
+
+            return;
+        }
+        true_callback();
+    }
 
     const toggle = (parent, target) => {
         parent.classList.contains('active')
@@ -60,6 +57,56 @@ export const accordions = () => {
         target.style.maxHeight = 0;
         parent.classList.remove('active');
     }
+
+    multiples.forEach(item => {
+        const click = (accordion) => {
+            if (!accordion.getAttribute('no-scroll'))
+                toggle(accordion, accordion.querySelector('[content]'))
+        }
+
+        const true_callback = (accordion) => {
+            accordion.querySelector('[btn]').addEventListener('click', () => {
+                click(accordion);
+            })
+        }
+
+        const false_callback = (accordion) => {
+            accordion.setAttribute('no-scroll', '');
+            scrollDown(accordion, accordion.querySelector('[content]'));
+        }
+
+        item.querySelectorAll('[accordion]').forEach(accordion => {
+            media(accordion, () => {true_callback(accordion)}, () => {false_callback(accordion)})
+        })
+    })
+    
+    singles.forEach(item => {
+        const accordions = item.querySelectorAll('[accordion]');
+
+        const click = (accordion) => {
+            accordions.forEach(select => {
+                if (!select.hasAttribute('no-scroll')) {
+                    accordion == select 
+                        ? toggle(select, select.querySelector('[content]')) 
+                        : scrollUp(select, select.querySelector('[content]')) 
+                }
+            })
+        }
+
+        const true_callback = (accordion, event) => {
+            accordion.removeAttribute('no-scroll');
+            accordion.querySelector('[btn]').addEventListener('click', event)
+        }
+
+        const false_callback = (accordion) => {
+            accordion.setAttribute('no-scroll', '');
+            scrollDown(accordion, accordion.querySelector('[content]'));
+        }
+
+        accordions.forEach(accordion => {
+            media(accordion, () => {true_callback(accordion, () => {click(accordion)})}, () => {false_callback(accordion)});
+        })
+    })
 }
 
 // MODALS
