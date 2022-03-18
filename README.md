@@ -1,4 +1,24 @@
 # Gulp assembly for freelance
+This is gulp assemply for freelance start template
+
+### How to start
+To run this template run `npm install` and than `gulp`
+
+After server starts on port `3000`
+
+To change port just change it in *`gulp/tasks/server.js`* file
+```
+export const server = (done) => {
+    app.plugins.browsersync.init({
+        server: {
+            baseDir: `${app.path.build.html}`
+        },
+        notify: false,
+        port: 3000  <-- Right Here
+    }) 
+}
+```
+
 ### Features
 #### :pinched_fingers: Including HTML files in other HTML files
 
@@ -35,6 +55,8 @@ Gulp assembly creates new fonts for icons and generates file `_icons.scss`
 
 To use sprite format you should uncomment *`@import "_icons.scss";`* in *`src/scss/style.scss`* file
 ```
+src/scss/style.scss
+
 ...
 //@import "_icons.scss";
 ...
