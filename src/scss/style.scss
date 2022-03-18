@@ -4,8 +4,8 @@
 @import "base/mixins.scss";
 
 // Variables
-$containerMaxWidth: 1100px;
-$containerPadding: 30px;
+$containerMaxWidth: 1100;
+$containerPadding: 30;
 $fontSize: rem(16);
 
 // Breakpoints
@@ -27,19 +27,9 @@ body {
 
 // Container
 [class*='__container'] {
-    max-width: $containerMaxWidth;
+    max-width: rem($containerMaxWidth);
     margin: 0 auto;
-    padding: $containerPadding;
-    @media (max-width: $md1) {
-        max-width: 970px;
-    }
-    @media (max-width: $md2) {
-        max-width: 750px;
-    }
-    @media (max-width: $md3) {
-        max-width: none;
-        padding: 0 15px;
-    }
+    padding: 0 rem($containerPadding);
 }
 
 @import "_header.scss";

@@ -5,14 +5,18 @@ $headerColor: #fff;
     border-bottom: 1px solid;
     border-image: linear-gradient(to right, transparent, #10517c, transparent) 1;
     background-color: $headerColor;
-}
-.header__container {
-    height: $headerHeight;
-    align-items: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #10517c;
+    &__container {
+        height: $headerHeight;
+        align-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #10517c;
+    }
+    &__menu {
+        
+    }
+    
 }
 .menu_list {
     display: flex;

@@ -16,24 +16,24 @@ export const isWebp = () => {
 
 // MENU
 export const menu = () => {
-    document.querySelector('[menu-btn]').addEventListener('click', () => {
-        document.querySelector('[menu-list]').classList.toggle('active');
-        document.querySelector('[menu-btn]').classList.toggle('active');
+    document.querySelector('[data-menu-btn]').addEventListener('click', () => {
+        document.querySelector('[data-menu-list]').classList.toggle('active');
+        document.querySelector('[data-menu-btn]').classList.toggle('active');
     })
 }
 
 // ACCORDIONS
 export const accordions = () => {
-    const multiples = document.querySelectorAll('[accordions][multiple]');
-    const singles = document.querySelectorAll('[accordions][single]');
+    const multiples = document.querySelectorAll('[data-accordions="multiple"]');
+    const singles = document.querySelectorAll('[data-accordions="single"]');
 
     const handle = (query, true_callback, false_callback) => {
         query.matches ? true_callback() : false_callback();
     }
 
     const media = (accordion, true_callback, false_callback) => {
-        if (accordion.hasAttribute('accordion') && accordion.getAttribute('accordion')) {
-            const query = window.matchMedia(`(${accordion.getAttribute('accordion').split(', ')[0]}-width: ${accordion.getAttribute('accordion').split(', ')[1]}px)`);
+        if (accordion.hasAttribute('data-accordion') && accordion.getAttribute('data-accordion')) {
+            const query = window.matchMedia(`(${accordion.getAttribute('data-accordion').split(', ')[0]}-width: ${accordion.getAttribute('data-accordion').split(', ')[1]}px)`);
             query.addListener(() => handle(query, true_callback, false_callback));
             handle(query, true_callback, false_callback);
 
@@ -60,47 +60,47 @@ export const accordions = () => {
 
     multiples.forEach(item => {
         const click = (accordion) => {
-            if (!accordion.getAttribute('no-scroll'))
-                toggle(accordion, accordion.querySelector('[content]'))
+            if (!accordion.getAttribute('data-no-scroll'))
+                toggle(accordion, accordion.querySelector('[data-content]'))
         }
 
         const true_callback = (accordion) => {
-            accordion.querySelector('[btn]').addEventListener('click', () => {
+            accordion.querySelector('[data-btn]').addEventListener('click', () => {
                 click(accordion);
             })
         }
 
         const false_callback = (accordion) => {
-            accordion.setAttribute('no-scroll', '');
-            scrollDown(accordion, accordion.querySelector('[content]'));
+            accordion.setAttribute('data-no-scroll', '');
+            scrollDown(accordion, accordion.querySelector('[data-content]'));
         }
 
-        item.querySelectorAll('[accordion]').forEach(accordion => {
+        item.querySelectorAll('[data-accordion]').forEach(accordion => {
             media(accordion, () => {true_callback(accordion)}, () => {false_callback(accordion)})
         })
     })
     
     singles.forEach(item => {
-        const accordions = item.querySelectorAll('[accordion]');
+        const accordions = item.querySelectorAll('[data-accordion]');
 
         const click = (accordion) => {
             accordions.forEach(select => {
-                if (!select.hasAttribute('no-scroll')) {
+                if (!select.hasAttribute('data-no-scroll')) {
                     accordion == select 
-                        ? toggle(select, select.querySelector('[content]')) 
-                        : scrollUp(select, select.querySelector('[content]')) 
+                        ? toggle(select, select.querySelector('[data-content]')) 
+                        : scrollUp(select, select.querySelector('[data-content]')) 
                 }
             })
         }
 
         const true_callback = (accordion, event) => {
-            accordion.removeAttribute('no-scroll');
-            accordion.querySelector('[btn]').addEventListener('click', event)
+            accordion.removeAttribute('data-no-scroll');
+            accordion.querySelector('[data-btn]').addEventListener('click', event)
         }
 
         const false_callback = (accordion) => {
-            accordion.setAttribute('no-scroll', '');
-            scrollDown(accordion, accordion.querySelector('[content]'));
+            accordion.setAttribute('data-no-scroll', '');
+            scrollDown(accordion, accordion.querySelector('[data-content]'));
         }
 
         accordions.forEach(accordion => {
@@ -111,17 +111,17 @@ export const accordions = () => {
 
 // MODALS
 export const modals = () => {
-    document.querySelectorAll('a[href*="#"][href*="modal"]').forEach((link) => {
+    document.querySelectorAll('a[href*="#"][href*="modal"]').forEach(link => {
         link.addEventListener('click', (e) => {
-            document.querySelectorAll('div[modal*="#"][modal*="modal"]').forEach((modal) => {
-                modal.getAttribute('modal') == link.getAttribute('href') 
+            document.querySelectorAll('div[data-modal*="#"][data-modal*="modal"]').forEach(modal => {
+                modal.getAttribute('data-modal') == link.getAttribute('href') 
                     ? modal.classList.toggle('opened') : "";
 
                 modal.addEventListener('click', (e) => {
                     e.target == modal ? modal.classList.remove('opened') : "";
                 })
 
-                modal.querySelector('[close]').addEventListener('click', () => {
+                modal.querySelector('[data-close]').addEventListener('click', () => {
                     modal.classList.remove('opened');
                 })
 
@@ -133,10 +133,10 @@ export const modals = () => {
 
 // RANGES
 export const ranges = () => {
-    document.querySelectorAll('[ranges]').forEach(range => {
+    document.querySelectorAll('[data-ranges]').forEach(range => {
         const slider_min = range.querySelector("[data-range='min']");
         const slider_max = range.querySelector("[data-range='max']");
-        const track = range.querySelector("[track]");
+        const track = range.querySelector("[data-track]");
 
         const fill = () => { 
             track.style.background = `linear-gradient(to right, lightgray ${slider_min.value / slider_min.max * 100}%, tomato ${slider_min.value / slider_min.max * 100}%, tomato ${slider_max.value / slider_max.max * 100}%, lightgray ${slider_max.value / slider_max.max * 100}%)`; 
@@ -166,7 +166,7 @@ export const ranges = () => {
 
 // TABS
 export const tabs = () => {
-    document.querySelectorAll('[tabs]').forEach(item => {
+    document.querySelectorAll('[data-tabs]').forEach(item => {
         const tabs = item.querySelectorAll('[data-for]');
         const contents = item.querySelectorAll('[data-tab]');
 
