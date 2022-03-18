@@ -137,26 +137,28 @@ export const ranges = () => {
         const slider_min = range.querySelector("[data-range='min']");
         const slider_max = range.querySelector("[data-range='max']");
         const track = range.querySelector("[data-track]");
+        const gap = parseInt(range.dataset.gap);
 
-        const fill = () => { 
-            track.style.background = `linear-gradient(to right, lightgray ${slider_min.value / slider_min.max * 100}%, tomato ${slider_min.value / slider_min.max * 100}%, tomato ${slider_max.value / slider_max.max * 100}%, lightgray ${slider_max.value / slider_max.max * 100}%)`; 
-        }
-
-        const limit = (listener, target, operator, gap = range.dataset.gap) => {
-            if (eval(`${parseInt(listener.value)} ${operator} ${parseInt(target.value)}`)) {
-                listener.value = operator === '>' 
-                    ? parseInt(target.value) - parseInt(gap) 
-                    : parseInt(target.value) + parseInt(gap);
-            }
+        const fill = () => {
+            track.style.left = slider_min.value / slider_min.max * 100 + '%';
+            track.style.right = 100 - slider_max.value / slider_max.max * 100 + '%';
         }
 
         slider_min.addEventListener('input', () => {
-            limit(slider_min, slider_max, '>');
+            slider_min.value = 
+                parseInt(slider_min.value) >= parseInt(slider_max.value) 
+                ? parseInt(slider_max.value) - gap 
+                : parseInt(slider_min.value);
+
             fill();
         });
         
         slider_max.addEventListener('input', () => {
-            limit(slider_max, slider_min, '<');
+            slider_max.value =
+                parseInt(slider_min.value) >= parseInt(slider_max.value)
+                ? parseInt(slider_min.value) + gap
+                : parseInt(slider_max.value);
+
             fill();
         });
 
