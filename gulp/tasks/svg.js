@@ -18,6 +18,4 @@ export const svg = () => {
             fontHeight: 1001
         }))
         .pipe(app.gulp.dest(app.path.src.fonts))
-        .pipe(app.gulp.src(app.path.src.fonts))
-        .pipe(app.gulp.dest(app.path.build.fonts));
 }

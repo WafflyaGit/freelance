@@ -5,7 +5,8 @@
   "main": "gulpfile.js",
   "type": "module",
   "scripts": {
-    "svg": "gulp svg"
+    "svg": "gulp svg",
+    "fonts": "gulp fonts"
   },
   "author": "Wafflya",
   "license": "ISC",

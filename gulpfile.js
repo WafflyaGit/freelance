@@ -16,6 +16,8 @@ import { scss } from "./gulp/tasks/scss.js";
 import { js } from "./gulp/tasks/js.js";
 import { images } from "./gulp/tasks/images.js";
 import { svg } from "./gulp/tasks/svg.js";
+import { favicon } from "./gulp/tasks/favicon.js"
+import { fonts } from "./gulp/tasks/fonts.js"
 
 function watcher () {
     gulp.watch(path.watch.html, html);
@@ -24,8 +26,8 @@ function watcher () {
     gulp.watch(path.watch.images, images);
 }
 
-export { svg }
+export { svg, fonts }
 
-const dev = gulp.series(reset, gulp.parallel(html, scss, js, images), gulp.parallel(watcher, server));
+const dev = gulp.series(reset, gulp.parallel(html, scss, js, images, favicon), gulp.parallel(watcher, server));
 
 gulp.task('default', dev);
